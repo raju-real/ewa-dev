@@ -1,0 +1,11 @@
+.page-title,h3 {
+    color: #495057;
+}
+.text-short-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
