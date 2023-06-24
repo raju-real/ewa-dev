@@ -168,3 +168,27 @@ if(! function_exists('saveNotification')) {
         $notification->save();
     }
 }
+
+/**
+ * Approve members
+ */
+if(! function_exists('approveMembers')) {
+    function approveMembers() {
+        return \App\Models\User::where('approve_status','yes')->get();
+    }
+}
+
+/**
+ * Upload file
+ */
+if (! function_exists('uploadFile')) {
+    function uploadFile($file): string
+    {
+        $uniqueFileName = time(). '.'.$file->getClientOriginalExtension();
+        if (!file_exists('assets/files/')) {
+            mkdir('assets/files/', 0755, true);
+        }
+        $file->move('assets/files/',$uniqueFileName);
+        return 'assets/files/'.$uniqueFileName;
+    }
+}

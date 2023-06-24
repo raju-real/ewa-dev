@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Engineers Walefare Association</title>
+	<title>{{ siteSetting()['title'] ?? '' }}</title>
 	<link rel="stylesheet" href="{{ asset('assets/backend/vendors/core/core.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/backend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/backend/fonts/feather-font/css/iconfont.css') }}">
@@ -25,14 +25,17 @@
     <link rel="stylesheet" href="{{ asset('assets/backend/vendors/select2/select2.min.css') }}">
     <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
     <!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+{{--    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">--}}
+{{--    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>--}}
+    <link rel="stylesheet" href="{{ asset('assets/backend/vendors/simplemde/simplemde.min.css') }}">
 
     @stack('css')
 </head>
 <body>
-	<div class="main-wrapper">
-		<div class="horizontal-menu">
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0&appId=385864235969257&autoLogAppEvents=1" nonce="XcydTEgS"></script>		<div class="horizontal-menu">
 			<nav class="navbar top-navbar">
 				<div class="container">
 					<div class="navbar-content">
@@ -226,7 +229,8 @@
     <script src="{{ asset('assets/backend/js/select2.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-
+    <script src="{{ asset('assets/backend/vendors/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/vendors/simplemde/simplemde.min.js') }}"></script>
     @stack('js')
 </body>
 </html>

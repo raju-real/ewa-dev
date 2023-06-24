@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Models\UserEducation;
 use Illuminate\Http\Request;
@@ -11,9 +12,54 @@ use Intervention\Image\Facades\Image;
 class ProfileController extends Controller
 {
     public function profile() {
-        $data = [];
-        $data['members'] = User::all();
-        return view('profile.profile',$data);
+        $member_id = request()->get('member');
+        if(isset($member_id)) {
+            $user = User::where('member_id',$member_id)->first();
+        } else {
+            $user = Auth::user();
+        }
+        $members = User::approved()->where('id','!=',Auth::id())->get();
+        return view('profile.profile',compact('user','members'));
+    }
+
+    public function loadPost() {
+        $perPage = 10; // Number of records per page
+        $page = request()->get('page', 1); // Get the page number from the request
+        $member_id = request()->get('member');
+        if(isset($member_id)) {
+            $user = User::where('member_id',$member_id)->first();
+        } else {
+            $user = Auth::user();
+        }
+        $post = Post::query();
+        if(isset($member_id) && !empty($member_id) && $member_id != 0) {
+            $post->where('user_id',$user->id);
+        }
+        $posts = $post->latest()->paginate($perPage, ['*'], 'page', $page);
+        return view('profile.post_div',compact('posts'));
+    }
+
+    /**
+     * Make a new post
+     * @param Request $request
+     */
+    public function submitPost(Request $request)
+    {
+        $this->validate($request,['post_content' => 'required|max:5000']);
+        $post = new Post();
+        $post->user_id = Auth::id();
+        $post->post_content = $request->post_content;
+        $post->like_count = 0;
+        if($request->hasFile('files')) {
+            $file_name = [];
+            foreach($request->file('files') as $file){
+                $fileName = uploadFile($file);
+                array_push($file_name,$fileName);
+            }
+            $post->files = implode(',',$file_name);
+        }
+        $post->save();
+        return redirect()->route('profile');
     }
 
     public function editProfileForm() {

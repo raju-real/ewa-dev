@@ -55,7 +55,8 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#registration">Registration</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#policy">Our Policy</a></li>
           <li><a class="nav-link scrollto" href="#missions">Our Mission</a></li>
           <li><a class="nav-link   scrollto" href="#events">Events</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>

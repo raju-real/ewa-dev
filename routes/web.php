@@ -29,6 +29,11 @@ Route::group(['middleware' => ['auth','has_approval'] ] ,function() {
     Route::get('approve-request/{id}','MemberController@approveRequest')
         ->name('approve-request');
     Route::resource('members','MemberController');
+    // Post
+    Route::post('submit-post','ProfileController@submitPost')
+        ->name('submit-post');
+    Route::get('load-post','ProfileController@loadPost')
+        ->name('load-post');
     // Settings
     Route::get('website-settings','SettingController@websiteSetting')
         ->name('website-settings');
@@ -42,5 +47,18 @@ Route::group(['middleware' => ['auth','has_approval'] ] ,function() {
         \Illuminate\Support\Facades\Session::flush();
         return redirect()->route('home');
     })->name('logout');
+});
+
+Route::get('insert-fake-user',function () {
+   for ($count = 0;$count <= 10;$count ++) {
+       $user = new \App\Models\User();
+       $user->member_id = \App\Models\User::getMemberId();
+       $user->name = 'user'.$count;
+       $user->email = 'user'.$count.'@mail.com';
+       $user->mobile = '02589958'.$count;
+       $user->approve_status = 'yes';
+       $user->password = \Illuminate\Support\Facades\Hash::make('123456');
+       $user->save();
+   }
 });
 

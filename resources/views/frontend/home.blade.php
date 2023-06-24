@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group col-md-12">
                   <label for="name">Password</label> {!! starSign() !!}
-                  <input type="password" name="password" autocomplete="off" autofocus="off" class="form-control max-length-input @error('password') is-invalid @enderror" maxlength="15" placeholder="Password" id="password" required>
+                  <input type="password" name="password" autocomplete="off"  class="form-control max-length-input @error('password') is-invalid @enderror" maxlength="15" placeholder="Password" id="password" required>
                     @error('password')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -200,6 +200,23 @@
 
       </div>
     </section><!-- End Skills Section -->
+
+      <!-- ======= About Us Section ======= -->
+    <section id="policy" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Our Policy</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-12">
+            {!! siteSetting()['privacy_policy'] ?? '' !!}
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
 
     <!-- ======= Our Mission Section ======= -->
     <section id="missions" class="services section-bg">

@@ -56,6 +56,15 @@ class User extends Authenticatable
         return $this->hasMany(UserEducation::class,'user_id','id');
     }
 
+    public function engineer_type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(EngineerType::class,'engineer_type_id','id');
+    }
+
+    public function scopeApproved() {
+        return $this->where('approve_status', "yes");
+    }
+
     public static function getMemberId()
     {
         $latestOrderNumber = User::latest('id')->whereNotNull('member_id')->first();

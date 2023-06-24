@@ -62,7 +62,8 @@ class CreateUsersTable extends Migration
             'mobile' => '01737773393',
             'approve_status' => 'yes',
             'menu_permission' => 'yes',
-            'password' => \Illuminate\Support\Facades\Hash::make('123456')
+            'password' => \Illuminate\Support\Facades\Hash::make('123456'),
+            'created_at' => \Carbon\Carbon::now()
         ]);
     }
 
