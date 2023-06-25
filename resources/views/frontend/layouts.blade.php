@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/frontend/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('assets/frontend/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('assets/common/logo.jpg') }}" rel="icon">
+  <link href="{{ asset('assets/common/logo.jpg') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -49,7 +49,7 @@
 
       <h1 class="logo me-auto"><a href="{{ route('home') }}">EWA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/frontend/img/logo.png" alt="" class="img-fluid"></a>-->
+{{--      <a href="index.html" class="logo me-auto"><img src="{{ asset('assets/common/logo.jpg') }}" alt="" class="img-fluid"></a>--}}
 
       <nav id="navbar" class="navbar">
         <ul>
