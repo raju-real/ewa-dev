@@ -88,7 +88,7 @@
 
         <div class="row content">
           <div class="col-lg-12">
-            {!! siteSetting()['about_us'] !!}
+            {!! siteSetting()['about_us'] ?? '' !!}
           </div>
         </div>
 
@@ -218,6 +218,7 @@
         </div>
 
         <div class="row">
+            @if(isset(siteSetting()['mission']))
           @foreach(siteSetting()['mission'] as $mission)
               <div class="col-xl-3 col-md-6 align-items-stretch mt-4 mt-xl-0 pb-2" data-aos="zoom-in" data-aos-delay="300">
                 <div class="icon-box">
@@ -229,6 +230,7 @@
                 </div>
               </div>
           @endforeach
+                @endif
         </div>
 
       </div>
@@ -459,13 +461,13 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{ siteSetting()['email'] }}</p>
+                <p>{{ siteSetting()['email'] ?? '' }}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>{{ siteSetting()['phone'] }}</p>
+                <p>{{ siteSetting()['phone'] ?? '' }}</p>
               </div>
 
               <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57488.17433739199!2d89.39643728440444!3d25.770203647190478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e2d666bb328579%3A0x9483bbaa656932cd!2sKaunia!5e0!3m2!1sen!2sbd!4v1687715131709!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

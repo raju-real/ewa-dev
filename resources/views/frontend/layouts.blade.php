@@ -79,7 +79,7 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>{{ siteSetting()['site_title'] }}</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>{{ siteSetting()['site_title'] ?? '' }}</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
