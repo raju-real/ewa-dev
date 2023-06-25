@@ -28,6 +28,9 @@
 {{--    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">--}}
 {{--    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>--}}
     <link rel="stylesheet" href="{{ asset('assets/backend/vendors/simplemde/simplemde.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/backend/vendors/owl.carousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/backend/vendors/owl.carousel/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/backend/vendors/animate.css/animate.min.css') }}">
 
     @stack('css')
 </head>
@@ -180,6 +183,7 @@
                                     <ul class="submenu-item">
                                         <li class="nav-item"><a class="nav-link" href="{{ route('website-settings') }}">Website Setting</a></li>
                                         <li class="nav-item"><a class="nav-link" href="{{ route('engineer-types.index') }}">Engineer Types</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('events.index') }}">Events</a></li>
                                         <li class="nav-item"><a class="nav-link" href="{{ route('designations.index') }}">Designation</a></li>
                                     </ul>
                                 </div>
@@ -231,6 +235,9 @@
     <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
     <script src="{{ asset('assets/backend/vendors/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('assets/backend/vendors/simplemde/simplemde.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/vendors/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/vendors/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/carousel.js') }}"></script>
     @stack('js')
 </body>
 </html>

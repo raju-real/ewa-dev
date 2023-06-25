@@ -8,6 +8,9 @@ Route::get('membership-form','HomePageController@membershipForm')
     ->name('membership-form');
 Route::post('become-a-member','HomePageController@memberRegistration')
     ->name('become-a-member');
+Route::post('send-guest-message','HomePageController@sendGuestMessage')
+    ->name('send-guest-message');
+
 
 // Auth activity route
 Route::get('login','HomePageController@loginPage')
@@ -39,6 +42,7 @@ Route::group(['middleware' => ['auth','has_approval'] ] ,function() {
         ->name('website-settings');
     Route::put('update-website-settings','SettingController@updateWebsiteSetting')
         ->name('update-website-settings');
+    Route::resource('events','EventController');
     Route::resource('designations','DesignationController');
     Route::resource('engineer-types','EngineerTypeController');
 

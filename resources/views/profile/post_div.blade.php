@@ -18,14 +18,14 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="w-80">Title</th>
+                            <th class="w-80">Type</th>
                             <th class="w-20">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach(explode(',',$post->files) as $file)
                             <tr>
-                                <td>{{ str_replace('assets/files/','',$file) }}</td>
+                                <td>{{ Str::limit(str_replace('assets/files/','',$file),'20','...') }}</td>
                                 <td>
                                     <a target="_blank" href="{{ $file }}" class="badge badge-info"><i class="fa fa-eye"></i></a>
                                 </td>

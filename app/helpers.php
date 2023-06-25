@@ -5,6 +5,7 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 if(!function_exists('starSign')){
     function starSign(): string
@@ -108,12 +109,67 @@ if (! function_exists('uploadImage')) {
 }
 
 /**
+ * Check file is image
+ */
+if(! function_exists('isImage')) {
+    function isImage($file) {
+        $file_type = $file->getClientMimeType();
+        $text = explode('/',$file_type)[0];
+        if($text == "image") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+/**
+ * Get file extension
+ */
+if(! function_exists('fileExtension')) {
+    function fileExtension($file) {
+        if(isset($file)) {
+            return $file->getClientOriginalExtension();
+        } else {
+            return "Inalid file";
+        }
+    }
+}
+
+/**
+ * Get file type
+ */
+if(! function_exists('imageWidthHeight')) {
+    function imageWidthHeight($image) {
+        $img_size_array = getimagesize($image);
+        $width = $img_size_array[0];
+        $height = $img_size_array[1];
+        return array('width' => $width,'height' => $height);
+    }
+}
+
+/**
+ * Get path image info
+ */
+if(! function_exists('pathImageInfo')) {
+    function pathImageInfo($path) {
+        $image = Image::make($path);
+        return [
+            'type' => explode('/',$image->mime())[0],
+            'extension' => explode('/',$image->mime())[1],
+            'height' => $image->height(),
+            'width' => $image->width(),
+        ];
+    }
+}
+
+/**
  * Upload file
  */
 if (! function_exists('uploadFile')) {
     function uploadFile($file,$path="assets/files/"): string
     {
-        $uniqueFileName = time().'_' . '.'.$file->getClientOriginalExtension();
+        $uniqueFileName = $file->getClientOriginalName().'-'. time().'-' . '.'.$file->getClientOriginalExtension();
         if (!file_exists($path)) {
             mkdir($path, 0755, true);
         }
@@ -178,17 +234,4 @@ if(! function_exists('approveMembers')) {
     }
 }
 
-/**
- * Upload file
- */
-if (! function_exists('uploadFile')) {
-    function uploadFile($file): string
-    {
-        $uniqueFileName = time(). '.'.$file->getClientOriginalExtension();
-        if (!file_exists('assets/files/')) {
-            mkdir('assets/files/', 0755, true);
-        }
-        $file->move('assets/files/',$uniqueFileName);
-        return 'assets/files/'.$uniqueFileName;
-    }
-}
+

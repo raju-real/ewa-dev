@@ -58,8 +58,8 @@
           <li><a class="nav-link scrollto" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="#policy">Our Policy</a></li>
           <li><a class="nav-link scrollto" href="#missions">Our Mission</a></li>
-          <li><a class="nav-link   scrollto" href="#events">Events</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+{{--          <li><a class="nav-link   scrollto" href="#events">Events</a></li>--}}
+{{--          <li><a class="nav-link scrollto" href="#team">Team</a></li>--}}
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="{{ route('login') }}">Login</a></li>
         </ul>

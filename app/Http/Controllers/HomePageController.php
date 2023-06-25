@@ -79,4 +79,8 @@ class HomePageController extends Controller
         saveNotification(adminId(),"New Member Request Placed",$user->name." wants be a member.Please take action.",route('member-requests'));
         return redirect()->route('login')->with('message','Thank you for your interest. Our admin will approve your request as soon as possible.');
     }
+
+    public function sendGuestMessage(Request $request) {
+        return $request;
+    }
 }
