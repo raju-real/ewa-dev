@@ -72,6 +72,7 @@ class ProfileController extends Controller
             'name' => 'required|max:50',
             'mobile' => 'required|max:11',
             'email' => 'max:50',
+            'image' => 'mimes:jpeg,jpg,png|max:1024'
         ]);
         $user = Auth::user();
         $user->engineer_type_id = $request->engineer_type_id ?? null;

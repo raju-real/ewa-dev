@@ -78,7 +78,7 @@ class HomePageController extends Controller
         $user->from_kaunia = $request->from_kaunia;
         $user->password = Hash::make($request->password);
         $user->save();
-        saveNotification(adminId(),"New Member Request Placed",$user->name." wants be a member.Please take action.",route('member-requests'));
+        // saveNotification(adminId(),"New Member Request Placed",$user->name." wants be a member.Please take action.",route('member-requests'));
         return redirect()->route('login')->with('message','Thank you for your interest. Our admin will approve your request as soon as possible.');
     }
 

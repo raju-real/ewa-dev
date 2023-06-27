@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/backend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/backend/fonts/feather-font/css/iconfont.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/backend/css/demo_5/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/backend/images/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/common/logo.jpg') }}" />
     <link rel="stylesheet" href="{{ asset('assets/backend/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/backend/vendors/select2/select2.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/backend/vendors/jquery-tags-input/jquery.tagsinput.min.css') }}">

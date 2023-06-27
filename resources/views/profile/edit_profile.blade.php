@@ -24,12 +24,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Name</label> {!! starSign() !!}
-                                    <input type="text" name="name" value="{{ old('name') ?? $user->name ?? '' }}" autocomplete="off" class="form-control max-length-input @error('name') is-invalid @enderror" maxlength="50" placeholder="Name" id="name" required>
-                                    @error('name')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                                    <label for="father_name">Father Name</label>
+                                    <input type="text" name="father_name" value="{{ old('father_name') ?? $user->father_name ?? '' }}" placeholder="Father Name" class="form-control max-length-input" maxlength="50" id="father_name" >
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="name">Mobile</label> {!! starSign() !!}
                                     <input type="text" name="mobile" value="{{ old('mobile') ?? $user->mobile ?? '' }}" autocomplete="off" class="form-control max-length-input @error('mobile') is-invalid @enderror" maxlength="11" placeholder="Mobile" id="mobile" required>
@@ -74,18 +72,24 @@
                                     <textarea name="present_address" class="form-control max-length-input" maxlength="255" id="present_address" cols="30" rows="2" placeholder="Present Address">{{ old('present_address') ?? $user->present_address ?? '' }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Profile Photo</label>
-                                    <input type="file" name="image" class="form-control">
+                                    <label for="">Profile Photo (jpg,jpeg,png,Max: 1MB)</label>
+                                    <input type="file" name="image" class="form-control" accept=".jpg,.jpeg,.png">
+                                    @error('image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </fieldset>
                         </div>
                         <div class="col-lg-6">
                             <fieldset>
-
                                 <div class="form-group">
-                                    <label for="father_name">Father Name</label>
-                                    <input type="text" name="father_name" value="{{ old('father_name') ?? $user->father_name ?? '' }}" placeholder="Father Name" class="form-control max-length-input" maxlength="50" id="father_name" >
+                                    <label for="name">Name</label> {!! starSign() !!}
+                                    <input type="text" name="name" value="{{ old('name') ?? $user->name ?? '' }}" autocomplete="off" class="form-control max-length-input @error('name') is-invalid @enderror" maxlength="50" placeholder="Name" id="name" required>
+                                    @error('name')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="mother_name">Mother Name</label>
                                     <input type="text" name="mother_name" value="{{ old('mother_name') ?? $user->mother_name ?? '' }}" placeholder="Mother Name" class="form-control max-length-input" maxlength="50" id="mother_name" >
