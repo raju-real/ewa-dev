@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class HomePageController extends Controller
 {
@@ -81,6 +83,17 @@ class HomePageController extends Controller
     }
 
     public function sendGuestMessage(Request $request) {
-        return $request;
+        $data = [
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'subject' => $request->subject,
+            'body' => $request->message,
+        ];
+        Mail::send(['text'=>'mail'], $data, function($message) {
+         $message->to('mkraju.doorsoft@gmail.com', 'Tutorials Point')->subject
+            ('Laravel Basic Testing Mail');
+         $message->from('info@ewakaunia.com','Virat Gandhi');
+        });
+        return response()->json(array('status' => true));
     }
 }

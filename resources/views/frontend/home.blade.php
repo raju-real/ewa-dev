@@ -500,7 +500,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="button" id="send-guest-message">Send Message</button></div>
+              <div class="text-center"><button type="button" id="send-guest-message" class="btn btn-info btn-md">Send Message</button></div>
             </form>
           </div>
 
@@ -513,18 +513,17 @@
 @push('js')
     <script>
         $(document).on('click','#send-guest-message',function () {
-            $.ajax({
-                url: "{{ route('send-guest-message') }}",
-                method: 'POST',
-                data: {
-                    name: $('#guest-name').val(),
-                    email: $('#guest-email').val(),
-                    subject: $('#guest-subject').val(),
-                    message: $('#guest-message').val(),
-                },
-                success: function(response) {
-                    console.log(response)
-                }
+            axios.post('/send-guest-message', {
+              name: $('#guest-name').val(),
+              email: $('#guest-email').val(),
+              subject: $('#guest-subject').val(),
+              message: $('#guest-message').val(),
+            })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
             });
         });
     </script>
