@@ -185,6 +185,7 @@
                                         <li class="nav-item"><a class="nav-link" href="{{ route('engineer-types.index') }}">Engineer Types</a></li>
                                         <li class="nav-item"><a class="nav-link" href="{{ route('events.index') }}">Events</a></li>
                                         <li class="nav-item"><a class="nav-link" href="{{ route('designations.index') }}">Designation</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('faqs.index') }}">Faq</a></li>
                                     </ul>
                                 </div>
                             </li>

@@ -13,6 +13,7 @@ $(function() {
     $('.fb-comments').each(function(i,obj) {
             $(this).attr('data-href',window.location.href+'/'+$(this).attr('data-id'));
         });
+
     $(document).on('keyup','.member-list',function () {
        let search_key = $('.member-list').val().toLowerCase();
        if(search_key.length > 0) {

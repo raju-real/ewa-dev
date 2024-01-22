@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth','has_approval'] ] ,function() {
     Route::resource('events','EventController');
     Route::resource('designations','DesignationController');
     Route::resource('engineer-types','EngineerTypeController');
+    Route::resource('faqs','FaqController');
+
 
     Route::get('logout',function () {
         \Illuminate\Support\Facades\Auth::logout();
